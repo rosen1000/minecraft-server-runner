@@ -1,0 +1,10 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "target": "ES5",
+        "lib": ["ES2016", "DOM"]
+    },
+    "include": ["src/**/*"]
+}

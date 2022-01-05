@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uwu</title>
+    <style>
+        #chat {
+            color: green;
+            background-color: black;
+            border-color: azure;
+            border-radius: 5px;
+            padding: 5px;
+            font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+        
+            height: 60vh;
+            scrollbar-width: none;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        #chat::-webkit-scrollbar {
+            display: none;
+        }
+
+        #cmd {
+            position: relative;
+            background-color: black;
+            color: green;
+            border-radius: 5px;
+            
+            height: 50px;
+            width: 100%;
+            margin: 5px 0px 0px 0px;
+        }
+
+        #cmd-text {
+            position: absolute;
+            background-color: black;
+            color: green;
+            border: none;
+            font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+            
+            width: 90%;
+            height: 30px;
+            padding: 5px;
+
+            margin: 5px;
+            left: 0px;
+            right: 0px;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            document.getElementById('cmd-text').onkeydown = (e) => {
+                if (e.code == "Enter") {
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = () => {
+                        console.log(xhttp.readyState);
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            document.getElementById("cmd-text").value = "> ";
+                            document.getElementById("chat").innerHTML += xhttp.responseText + "<br>";
+                        }
+                    }
+                    xhttp.open("POST", "/server?cmd=" + document.getElementById("cmd-text").value, true);
+                    xhttp.send();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="chat">
+        rosen1000: tell giga nigga your problems<br>
+        giga nigga: uwu<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+        sd<br>
+    </div>
+    <div id="cmd">
+        <input id="cmd-text" type="text" value="> ">
+    </div>
+</body>
+</html>
